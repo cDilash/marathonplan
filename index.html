@@ -803,6 +803,43 @@
       text-align: center;
     }
 
+    /* ── Scroll Animations (Progressive Enhancement) ── */
+    .animate-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @supports (animation-timeline: view()) {
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fade-in-up linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 30%;
+      }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hover effects for cards */
+    .week-card {
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .week-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 106, 0, 0.3);
+    }
+
     @media (max-width: 600px) {
       .elevation-segments {
         display: none;
@@ -1169,28 +1206,28 @@
       <p style="color: var(--text-muted); margin-top: 8px; max-width: 600px;">Four phases designed to bridge the gap between your strong aerobic engine and undertrained running chassis.</p>
 
       <div class="phase-cards">
-        <div class="phase-card">
+        <div class="phase-card animate-on-scroll">
           <div class="phase-card-number">01</div>
           <h3 class="phase-card-name">BASE</h3>
           <div class="phase-card-weeks">Weeks 1-5</div>
           <div class="phase-card-mileage data-mono">15→22 mi</div>
           <div class="phase-card-detail">Aerobic foundation, tissue adaptation, Z2 discipline</div>
         </div>
-        <div class="phase-card">
+        <div class="phase-card animate-on-scroll">
           <div class="phase-card-number">02</div>
           <h3 class="phase-card-name">BUILD</h3>
           <div class="phase-card-weeks">Weeks 6-10</div>
           <div class="phase-card-mileage data-mono">24→33 mi</div>
           <div class="phase-card-detail">Threshold work, hill introduction, marathon pace</div>
         </div>
-        <div class="phase-card">
+        <div class="phase-card animate-on-scroll">
           <div class="phase-card-number">03</div>
           <h3 class="phase-card-name">PEAK</h3>
           <div class="phase-card-weeks">Weeks 11-14</div>
           <div class="phase-card-mileage data-mono">36→40 mi</div>
           <div class="phase-card-detail">Race-specific simulation, highest volume, course prep</div>
         </div>
-        <div class="phase-card">
+        <div class="phase-card animate-on-scroll">
           <div class="phase-card-number">04</div>
           <h3 class="phase-card-name">TAPER</h3>
           <div class="phase-card-weeks">Weeks 15-17</div>
@@ -1246,7 +1283,7 @@
         </tbody>
       </table>
 
-      <div class="goal-block">
+      <div class="goal-block animate-on-scroll">
         <h3>Goal Calibration</h3>
         <div class="goal-primary">4:00 finish</div>
         <div class="goal-stretch">Stretch: 3:45 (if tune-up half in weeks 11-12 shows 1:48-1:52)</div>
@@ -1260,7 +1297,7 @@
   <section id="phase-1" class="section">
     <div class="container">
       <div class="label" style="margin-bottom: 16px; color: var(--primary);">Phase 1</div>
-      <h2 class="phase-heading">BASE<br/>BUILDING</h2>
+      <h2 class="phase-heading animate-on-scroll">BASE<br/>BUILDING</h2>
       <p style="color: var(--text-muted); font-size: 18px; margin-top: 16px;">Weeks 1–5 · <span class="data-mono">15→22 mi/wk</span></p>
 
       <div class="phase-intro">
@@ -1269,7 +1306,7 @@
       </div>
 
       <!-- WEEK 1 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 1</span>
           <span class="week-card-mileage">15 mi</span>
@@ -1327,7 +1364,7 @@
       </div>
 
       <!-- WEEK 2 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 2</span>
           <span class="week-card-mileage">17 mi</span>
@@ -1385,7 +1422,7 @@
       </div>
 
       <!-- WEEK 3 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 3</span>
           <span class="week-card-mileage">19 mi</span>
@@ -1446,7 +1483,7 @@
       </div>
 
       <!-- WEEK 4 (STEP-BACK) -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 4</span>
           <span class="week-card-mileage">14 mi</span>
@@ -1504,7 +1541,7 @@
       </div>
 
       <!-- WEEK 5 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 5</span>
           <span class="week-card-mileage">22 mi</span>
@@ -1572,7 +1609,7 @@
   <section id="phase-2" class="section">
     <div class="container">
       <div class="label" style="margin-bottom: 16px; color: var(--primary);">Phase 2</div>
-      <h2 class="phase-heading">BUILD</h2>
+      <h2 class="phase-heading animate-on-scroll">BUILD</h2>
       <p style="color: var(--text-muted); font-size: 18px; margin-top: 16px;">Weeks 6–10 · <span class="data-mono">24→33 mi/wk</span></p>
 
       <div class="phase-intro">
@@ -1580,7 +1617,7 @@
       </div>
 
       <!-- WEEK 6 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 6</span>
           <span class="week-card-mileage">24 mi</span>
@@ -1639,7 +1676,7 @@
       </div>
 
       <!-- WEEK 7 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 7</span>
           <span class="week-card-mileage">27 mi</span>
@@ -1699,7 +1736,7 @@
       </div>
 
       <!-- WEEK 8 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 8</span>
           <span class="week-card-mileage">20 mi</span>
@@ -1755,7 +1792,7 @@
       </div>
 
       <!-- WEEK 9 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 9</span>
           <span class="week-card-mileage">30 mi</span>
@@ -1815,7 +1852,7 @@
       </div>
 
       <!-- WEEK 10 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 10</span>
           <span class="week-card-mileage">33 mi</span>
@@ -1884,7 +1921,7 @@
   <section id="phase-3" class="section">
     <div class="container">
       <div class="label" style="margin-bottom: 16px; color: var(--primary);">Phase 3</div>
-      <h2 class="phase-heading">PEAK</h2>
+      <h2 class="phase-heading animate-on-scroll">PEAK</h2>
       <p style="color: var(--text-muted); font-size: 18px; margin-top: 16px;">Weeks 11–14 · <span class="data-mono">36→40 mi/wk</span></p>
 
       <div class="phase-intro">
@@ -1892,7 +1929,7 @@
       </div>
 
       <!-- WEEK 11 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 11</span>
           <span class="week-card-mileage">36 mi</span>
@@ -1952,7 +1989,7 @@
       </div>
 
       <!-- WEEK 12 (STEP-BACK) -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 12</span>
           <span class="week-card-mileage">27 mi</span>
@@ -2008,7 +2045,7 @@
       </div>
 
       <!-- WEEK 13 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 13</span>
           <span class="week-card-mileage">38 mi</span>
@@ -2068,7 +2105,7 @@
       </div>
 
       <!-- WEEK 14 (PEAK WEEK) -->
-      <div class="week-card" style="border-color: var(--primary);">
+      <div class="week-card animate-on-scroll" style="border-color: var(--primary);">
         <div class="week-card-header">
           <span class="week-card-title">Week 14</span>
           <span class="week-card-mileage">40 mi</span>
@@ -2132,7 +2169,7 @@
   <section id="phase-4" class="section">
     <div class="container">
       <div class="label" style="margin-bottom: 16px; color: var(--primary);">Phase 4</div>
-      <h2 class="phase-heading">TAPER</h2>
+      <h2 class="phase-heading animate-on-scroll">TAPER</h2>
       <p style="color: var(--text-muted); font-size: 18px; margin-top: 16px;">Weeks 15–17 · <span class="data-mono">30→14 mi + Race</span></p>
 
       <div class="phase-intro">
@@ -2140,7 +2177,7 @@
       </div>
 
       <!-- WEEK 15 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 15</span>
           <span class="week-card-mileage">30 mi</span>
@@ -2198,7 +2235,7 @@
       </div>
 
       <!-- WEEK 16 -->
-      <div class="week-card">
+      <div class="week-card animate-on-scroll">
         <div class="week-card-header">
           <span class="week-card-title">Week 16</span>
           <span class="week-card-mileage">22 mi</span>
@@ -2257,7 +2294,7 @@
       </div>
 
       <!-- WEEK 17 (RACE WEEK) -->
-      <div class="week-card" style="border: 1px solid var(--primary); box-shadow: 0 0 30px rgba(255, 106, 0, 0.1);">
+      <div class="week-card animate-on-scroll" style="border: 1px solid var(--primary); box-shadow: 0 0 30px rgba(255, 106, 0, 0.1);">
         <div class="week-card-header">
           <span class="week-card-title">Week 17</span>
           <span class="week-card-mileage">~14 mi + 26.2</span>
@@ -2329,10 +2366,10 @@
   <section id="course-map" class="section">
     <div class="container">
       <div class="label" style="margin-bottom: 16px; color: var(--success);">The Course</div>
-      <h2 class="section-title">San Francisco Marathon</h2>
+      <h2 class="section-title animate-on-scroll">San Francisco Marathon</h2>
       <p style="color: var(--text-muted); margin-top: 8px;">26.2 miles · 1,303 ft elevation gain · July 27, 2026</p>
 
-      <div class="elevation-container">
+      <div class="elevation-container animate-on-scroll">
         <div class="elevation-profile">
           <!-- Gridlines -->
           <div class="elevation-gridlines">
@@ -2384,7 +2421,7 @@
         </div>
       </div>
 
-      <div class="course-stats">
+      <div class="course-stats animate-on-scroll">
         <div>
           <div class="data-mono" style="font-size: 24px;">1,303</div>
           <div class="label">ft elevation gain</div>
@@ -2399,7 +2436,7 @@
         </div>
       </div>
 
-      <div class="goal-block" style="margin-top: 48px; border-left-color: var(--success);">
+      <div class="goal-block animate-on-scroll" style="margin-top: 48px; border-left-color: var(--success);">
         <h3>Front-Loaded Course</h3>
         <p>54% of the climbing happens in the first half. The Golden Gate Bridge approach (mile 6–7), the return climb at mile 12, and Golden Gate Park (miles 16–18) demand patience. The late-race hills at Mariposa Street (miles 23–24) are short but devastating on depleted legs. The final 2.2 miles are flat along the Bay — your reward for disciplined pacing.</p>
       </div>
@@ -2409,7 +2446,7 @@
   <section id="race-day" class="section">
     <div class="container">
       <div class="label" style="margin-bottom: 16px; color: var(--success);">Race Day</div>
-      <h2 class="section-title">Execution Strategy</h2>
+      <h2 class="section-title animate-on-scroll">Execution Strategy</h2>
       <p style="color: var(--text-muted); margin-top: 8px;">Mile-by-mile plan for a 4:00 finish on the SF Marathon course</p>
 
       <!-- Cardinal Rule -->
@@ -2420,7 +2457,7 @@
       </div>
 
       <!-- Race Morning Timeline -->
-      <h3 class="section-title" style="font-size: 22px; margin-top: 48px; margin-bottom: 24px;">Race Morning</h3>
+      <h3 class="section-title animate-on-scroll" style="font-size: 22px; margin-top: 48px; margin-bottom: 24px;">Race Morning</h3>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-time">3:00 AM</div>
@@ -2474,10 +2511,10 @@
       </div>
 
       <!-- Segment Strategy -->
-      <h3 class="section-title" style="font-size: 22px; margin-top: 64px; margin-bottom: 24px;">Segment Strategy</h3>
+      <h3 class="section-title animate-on-scroll" style="font-size: 22px; margin-top: 64px; margin-bottom: 24px;">Segment Strategy</h3>
 
       <!-- Segment 1 -->
-      <div class="segment-card" style="border-left-color: var(--z3);">
+      <div class="segment-card animate-on-scroll" style="border-left-color: var(--z3);">
         <div class="segment-header">
           <div>
             <h4 class="segment-name">Miles 1-3: The Embarcadero</h4>
@@ -2492,7 +2529,7 @@
       </div>
 
       <!-- Segment 2 -->
-      <div class="segment-card" style="border-left-color: var(--z3);">
+      <div class="segment-card animate-on-scroll" style="border-left-color: var(--z3);">
         <div class="segment-header">
           <div>
             <h4 class="segment-name">Miles 4-8: Fort Mason, Marina, Golden Gate Bridge</h4>
@@ -2507,7 +2544,7 @@
       </div>
 
       <!-- Segment 3 -->
-      <div class="segment-card" style="border-left-color: var(--z3);">
+      <div class="segment-card animate-on-scroll" style="border-left-color: var(--z3);">
         <div class="segment-header">
           <div>
             <h4 class="segment-name">Miles 8-13: Marin Headlands and Back</h4>
@@ -2522,7 +2559,7 @@
       </div>
 
       <!-- Segment 4 -->
-      <div class="segment-card" style="border-left-color: var(--z3);">
+      <div class="segment-card animate-on-scroll" style="border-left-color: var(--z3);">
         <div class="segment-header">
           <div>
             <h4 class="segment-name">Miles 13-18: Presidio and Golden Gate Park</h4>
@@ -2537,7 +2574,7 @@
       </div>
 
       <!-- Segment 5 -->
-      <div class="segment-card" style="border-left-color: var(--z3);">
+      <div class="segment-card animate-on-scroll" style="border-left-color: var(--z3);">
         <div class="segment-header">
           <div>
             <h4 class="segment-name">Miles 18-22: Haight-Ashbury and Mission</h4>
@@ -2552,7 +2589,7 @@
       </div>
 
       <!-- Segment 6: THE CRUX -->
-      <div class="segment-card" style="border-left-color: var(--z4);">
+      <div class="segment-card animate-on-scroll" style="border-left-color: var(--z4);">
         <div class="segment-header">
           <div>
             <h4 class="segment-name">Miles 23-24: Mariposa Street Hills</h4>
@@ -2567,7 +2604,7 @@
       </div>
 
       <!-- Segment 7 -->
-      <div class="segment-card" style="border-left-color: var(--z4);">
+      <div class="segment-card animate-on-scroll" style="border-left-color: var(--z4);">
         <div class="segment-header">
           <div>
             <h4 class="segment-name">Miles 24-26.2: Flat Finish</h4>
@@ -2582,7 +2619,7 @@
       </div>
 
       <!-- Fueling Timeline -->
-      <h3 class="section-title" style="font-size: 22px; margin-top: 64px; margin-bottom: 24px;">Fueling Timeline</h3>
+      <h3 class="section-title animate-on-scroll" style="font-size: 22px; margin-top: 64px; margin-bottom: 24px;">Fueling Timeline</h3>
 
       <table class="periodization-table">
         <thead>
@@ -2643,7 +2680,7 @@
       <p style="color: var(--text-muted); font-size: 13px; margin-top: 12px;">Total: 8-9 gels providing 200-270g carbohydrate. Supplement with sports drink from aid stations to reach 60-80g carbs per hour.</p>
 
       <!-- Expected Split Times -->
-      <h3 class="section-title" style="font-size: 22px; margin-top: 64px; margin-bottom: 24px;">Expected Split Times</h3>
+      <h3 class="section-title animate-on-scroll" style="font-size: 22px; margin-top: 64px; margin-bottom: 24px;">Expected Split Times</h3>
 
       <table class="periodization-table">
         <thead>
@@ -2716,7 +2753,7 @@
     <div class="container">
 
       <div class="label" style="margin-bottom: 16px;">Hill Conditioning</div>
-      <h2 class="section-title">Hill Programming</h2>
+      <h2 class="section-title animate-on-scroll">Hill Programming</h2>
       <p style="color: var(--text-muted); margin-top: 8px;">From zero hill training to SF-ready in 17 weeks</p>
 
       <div class="stage-cards">
@@ -2818,7 +2855,7 @@
         </tbody>
       </table>
 
-      <div class="goal-block" style="margin-top: 48px;">
+      <div class="goal-block animate-on-scroll" style="margin-top: 48px;">
         <h3>The Repeated Bout Effect</h3>
         <p>A single bout of eccentric exercise (like downhill running) protects against future muscle damage for up to 6 months. This is why the plan includes structured downhill repeats in weeks 9-13 and a final "refresher" in week 16. By race day, your quads will be pre-conditioned for the Haight-Ashbury descent and the Mariposa hills — the sections that destroy unprepared runners.</p>
       </div>
@@ -2830,7 +2867,7 @@
     <div class="container">
 
       <div class="label" style="margin-bottom: 16px;">Strength</div>
-      <h2 class="section-title">Strength Program</h2>
+      <h2 class="section-title animate-on-scroll">Strength Program</h2>
       <p style="color: var(--text-muted); margin-top: 8px;">From 6x PPL to runner-optimized durability work</p>
 
       <table class="periodization-table">
@@ -2890,32 +2927,32 @@
       </table>
 
       <div class="exercise-grid">
-        <div class="exercise-card">
+        <div class="exercise-card animate-on-scroll">
           <h4>Bulgarian Split Squat</h4>
           <div class="exercise-prescription">3x8-10 per leg, 3-5 sec eccentric</div>
           <p>Primary quad and glute builder. Directly transfers to uphill power and downhill resilience.</p>
         </div>
-        <div class="exercise-card">
+        <div class="exercise-card animate-on-scroll">
           <h4>Single-Leg Romanian Deadlift</h4>
           <div class="exercise-prescription">3x8-10 per leg</div>
           <p>Hamstring and hip stability. Mimics single-leg stance phase of running.</p>
         </div>
-        <div class="exercise-card">
+        <div class="exercise-card animate-on-scroll">
           <h4>Single-Leg Calf Raise</h4>
           <div class="exercise-prescription">3x12-15 per leg, full ROM, 20-25 kg DB</div>
           <p>Calves generate 55% of propulsive force in running.</p>
         </div>
-        <div class="exercise-card">
+        <div class="exercise-card animate-on-scroll">
           <h4>Eccentric Step-Down</h4>
           <div class="exercise-prescription">3x8-10 per leg, 4-5 sec descent</div>
           <p>Directly simulates downhill quad loading.</p>
         </div>
-        <div class="exercise-card">
+        <div class="exercise-card animate-on-scroll">
           <h4>Copenhagen Plank</h4>
           <div class="exercise-prescription">3x20-30 sec per side</div>
           <p>Hip adductor and abductor strength prevents knee collapse.</p>
         </div>
-        <div class="exercise-card">
+        <div class="exercise-card animate-on-scroll">
           <h4>Dead Bug</h4>
           <div class="exercise-prescription">3x10 per side</div>
           <p>Anti-extension core stability for maintaining form in late miles.</p>
@@ -2927,7 +2964,7 @@
         <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">Chest flies, lateral raises, bicep curls, tricep extensions, leg extensions, leg curls. Keep 1-2 light sets of push-ups and rows for upper-body maintenance if desired, but hypertrophy work adds mass you'll carry for 26.2 miles. <strong style="color: var(--text-primary);">Every extra kilogram costs ~2 seconds per mile.</strong></p>
       </div>
 
-      <div class="goal-block">
+      <div class="goal-block animate-on-scroll">
         <h3>Scheduling Rule</h3>
         <p>Schedule strength on easy-run days to consolidate stress and preserve quality on hard-run days. Lift in the afternoon/evening if you run in the morning (6+ hour gap ideal). Never lift heavy the day before a long run, tempo, or hill session.</p>
       </div>
@@ -2939,7 +2976,7 @@
     <div class="container">
 
       <div class="label" style="margin-bottom: 16px;">Fueling</div>
-      <h2 class="section-title">Nutrition & Fueling</h2>
+      <h2 class="section-title animate-on-scroll">Nutrition &amp; Fueling</h2>
       <p style="color: var(--text-muted); margin-top: 8px;">Race-day energy strategy and carb loading protocol</p>
 
       <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-top: 48px; margin-bottom: 24px;">Race-Day Gel Schedule</h3>
@@ -2960,7 +2997,7 @@
         </div>
       </div>
 
-      <div style="display: flex; gap: 32px; justify-content: center; margin: 32px 0; flex-wrap: wrap;">
+      <div class="animate-on-scroll" style="display: flex; gap: 32px; justify-content: center; margin: 32px 0; flex-wrap: wrap;">
         <div style="text-align: center;">
           <div class="data-mono" style="font-size: 24px;">8-9</div>
           <div class="label">gels total</div>
@@ -2994,7 +3031,7 @@
         </div>
       </div>
 
-      <div class="goal-block" style="margin-top: 48px;">
+      <div class="goal-block animate-on-scroll" style="margin-top: 48px;">
         <h3>Pre-Race Meal</h3>
         <p>Pre-race meal 3 hours before start: 2 bagels with jam + banana + 16 oz sports drink (~150-200g carbs). Tested foods only. This is not the time to experiment.</p>
       </div>
@@ -3040,13 +3077,13 @@
     <div class="container">
 
       <div class="label" style="margin-bottom: 16px;">Safety</div>
-      <h2 class="section-title">Risk Management</h2>
+      <h2 class="section-title animate-on-scroll">Risk Management</h2>
       <p style="color: var(--text-muted); margin-top: 8px;">The single greatest threat to your marathon is not fitness — it's injury</p>
 
       <div class="card" style="margin: 32px 0;">
         <h3 style="color: var(--text-primary); font-size: 16px; font-weight: 700; margin-bottom: 16px;">Daily Monitoring</h3>
         <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7; margin-bottom: 16px;">Every morning before getting out of bed, check resting heart rate and HRV on your wearable. Track 7-day rolling averages, not single readings.</p>
-        <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+        <div class="animate-on-scroll" style="display: flex; gap: 24px; flex-wrap: wrap;">
           <div style="text-align: center; flex: 1; min-width: 120px;">
             <div class="data-mono" style="font-size: 28px;">~49</div>
             <div class="label">baseline RHR (bpm)</div>
@@ -3060,32 +3097,32 @@
 
       <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-top: 48px; margin-bottom: 24px;">Red Flags</h3>
 
-      <div style="background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 12px;">
+      <div class="animate-on-scroll" style="background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 12px;">
         <h4 style="color: var(--danger); font-size: 14px; font-weight: 700; margin-bottom: 8px;">RHR elevated 5+ bpm (≥54) for 3 consecutive days</h4>
         <p style="color: var(--text-secondary); font-size: 14px;">→ Cut week's mileage by 30%, drop all quality sessions</p>
       </div>
 
-      <div style="background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 12px;">
+      <div class="animate-on-scroll" style="background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 12px;">
         <h4 style="color: var(--danger); font-size: 14px; font-weight: 700; margin-bottom: 8px;">HRV trending downward for 5+ consecutive days</h4>
         <p style="color: var(--text-secondary); font-size: 14px;">→ Take extra rest day, reduce next long run by 20%</p>
       </div>
 
-      <div style="background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 12px;">
+      <div class="animate-on-scroll" style="background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 12px;">
         <h4 style="color: var(--danger); font-size: 14px; font-weight: 700; margin-bottom: 8px;">Sharp or localized pain during running</h4>
         <p style="color: var(--text-secondary); font-size: 14px;">→ Stop immediately. 2-3 days off. Physio if persists after 3 days.</p>
       </div>
 
-      <div style="background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 12px;">
+      <div class="animate-on-scroll" style="background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 12px;">
         <h4 style="color: var(--danger); font-size: 14px; font-weight: 700; margin-bottom: 8px;">Easy-run HR consistently 10+ bpm above normal at same pace</h4>
         <p style="color: var(--text-secondary); font-size: 14px;">→ You are under-recovered. Take 2 rest days.</p>
       </div>
 
-      <div style="background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 12px;">
+      <div class="animate-on-scroll" style="background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 12px;">
         <h4 style="color: var(--danger); font-size: 14px; font-weight: 700; margin-bottom: 8px;">Persistent fatigue, mood disturbance, or sleep disruption for 3+ days</h4>
         <p style="color: var(--text-secondary); font-size: 14px;">→ Step-back week regardless of plan position.</p>
       </div>
 
-      <div class="goal-block" style="margin-top: 48px;">
+      <div class="goal-block animate-on-scroll" style="margin-top: 48px;">
         <h3>Mileage Adjustment Rules</h3>
         <p>Never increase weekly mileage by more than 10% above highest recent non-step-back week.</p>
         <p>Miss 5+ days (illness/injury): resume at 70% of pre-break volume, rebuild over 2 weeks.</p>

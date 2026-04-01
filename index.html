@@ -811,6 +811,118 @@
         gap: 16px;
       }
     }
+
+    /* ── Race Day Timeline ── */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      border-left: 2px solid var(--border);
+      margin-left: 80px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 24px;
+      display: flex;
+      gap: 24px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid var(--base);
+    }
+
+    .timeline-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: var(--primary);
+      white-space: nowrap;
+      min-width: 80px;
+      position: absolute;
+      left: -120px;
+      text-align: right;
+    }
+
+    .timeline-content strong {
+      color: var(--text-primary);
+      font-size: 15px;
+    }
+
+    .timeline-content p {
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* ── Segment Cards ── */
+    .segment-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--z3);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+
+    .segment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .segment-name {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .segment-terrain {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .segment-metrics {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .segment-notes {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .timeline {
+        margin-left: 60px;
+        padding-left: 24px;
+      }
+      .timeline-time {
+        left: -80px;
+        font-size: 11px;
+        min-width: 60px;
+      }
+      .timeline-item::before {
+        left: -29px;
+      }
+      .segment-header {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2103,7 +2215,309 @@
   </section>
 
   <section id="race-day" class="section">
-    <div class="container"></div>
+    <div class="container">
+      <div class="label" style="margin-bottom: 16px; color: var(--success);">Race Day</div>
+      <h2 class="section-title">Execution Strategy</h2>
+      <p style="color: var(--text-muted); margin-top: 8px;">Mile-by-mile plan for a 4:00 finish on the SF Marathon course</p>
+
+      <!-- Cardinal Rule -->
+      <div style="background: rgba(255, 59, 48, 0.08); border: 1px solid rgba(255, 59, 48, 0.2); border-left: 4px solid var(--danger); border-radius: 0 12px 12px 0; padding: 24px 32px; margin: 32px 0;">
+        <h3 style="color: var(--danger); font-size: 16px; font-weight: 700; margin-bottom: 8px;">THE CARDINAL RULE</h3>
+        <p style="color: var(--text-primary); font-size: 18px; font-weight: 600;">Run by heart rate and effort, never by GPS pace.</p>
+        <p style="color: var(--text-secondary); margin-top: 8px; font-size: 14px;">GPS pace is meaningless on hills. Your watch will show 10:30/mi on uphills and 7:30/mi on downhills — both are correct if your heart rate is in the right zone.</p>
+      </div>
+
+      <!-- Race Morning Timeline -->
+      <h3 class="section-title" style="font-size: 22px; margin-top: 48px; margin-bottom: 24px;">Race Morning</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">3:00 AM</div>
+          <div class="timeline-content">
+            <strong>Wake up</strong>
+            <p>Set 3 alarms. Begin hydrating immediately.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">3:00-3:15</div>
+          <div class="timeline-content">
+            <strong>Pre-race meal</strong>
+            <p>2 bagels with jam + banana + 16 oz sports drink (~150-200g carbs). Tested foods only.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">3:15-4:30</div>
+          <div class="timeline-content">
+            <strong>Final prep</strong>
+            <p>Sip water. Final bathroom stops. Apply Body Glide/anti-chafe.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">4:30 AM</div>
+          <div class="timeline-content">
+            <strong>Race gear on</strong>
+            <p>Disposable warm layers for the start (52-57°F, likely foggy). Dress for 62°F (what you'll feel at mile 18+): shorts, singlet, arm sleeves you can shed.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">4:45 AM</div>
+          <div class="timeline-content">
+            <strong>Arrive Embarcadero corral</strong>
+            <p>Find your pace group. Stay warm. Light dynamic stretches.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">5:00 AM</div>
+          <div class="timeline-content">
+            <strong>Caffeinated gel + 4 oz water</strong>
+            <p>15 minutes before start. Last fuel before the gun.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">5:15 AM</div>
+          <div class="timeline-content">
+            <strong style="color: var(--primary);">GUN TIME</strong>
+            <p>Start your watch. Settle into rhythm. Ignore the crowd surge.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Segment Strategy -->
+      <h3 class="section-title" style="font-size: 22px; margin-top: 64px; margin-bottom: 24px;">Segment Strategy</h3>
+
+      <!-- Segment 1 -->
+      <div class="segment-card" style="border-left-color: var(--z3);">
+        <div class="segment-header">
+          <div>
+            <h4 class="segment-name">Miles 1-3: The Embarcadero</h4>
+            <span class="segment-terrain">Flat</span>
+          </div>
+          <div class="segment-metrics">
+            <span class="data-mono zone-3">HR 130-138</span>
+            <span class="data-mono" style="color: var(--text-muted);">8:50-9:15/mi</span>
+          </div>
+        </div>
+        <p class="segment-notes">Deliberately conservative. You will feel amazing and fresh — resist the urge to go faster. Start at the slow end of target range. Take first gel at mile 3.</p>
+      </div>
+
+      <!-- Segment 2 -->
+      <div class="segment-card" style="border-left-color: var(--z3);">
+        <div class="segment-header">
+          <div>
+            <h4 class="segment-name">Miles 4-8: Fort Mason, Marina, Golden Gate Bridge</h4>
+            <span class="segment-terrain">Climbing</span>
+          </div>
+          <div class="segment-metrics">
+            <span class="data-mono zone-3">HR 138-148</span>
+            <span class="data-mono" style="color: var(--text-muted);">9:00-9:40/mi</span>
+          </div>
+        </div>
+        <p class="segment-notes">Fort Mason hill is short but steep — shorten stride, lean from ankles. Real climb begins mile 6 up to bridge at 200 ft. Do NOT attack it. On the bridge expect wind and fog — tuck behind other runners. Gel at mile 7.</p>
+      </div>
+
+      <!-- Segment 3 -->
+      <div class="segment-card" style="border-left-color: var(--z3);">
+        <div class="segment-header">
+          <div>
+            <h4 class="segment-name">Miles 8-13: Marin Headlands and Back</h4>
+            <span class="segment-terrain">Rolling hills</span>
+          </div>
+          <div class="segment-metrics">
+            <span class="data-mono zone-3">HR 138-148</span>
+            <span class="data-mono" style="color: var(--text-muted);">Variable pace</span>
+          </div>
+        </div>
+        <p class="segment-notes">Descent to Fort Baker is seductive — do NOT over-stride. Quick, short, soft steps. Mile 12 climb back to bridge gains 185 ft in one mile (~3.5%). Keep HR under 152. Walk briefly if needed at steepest section. Gel at mile 10.5.</p>
+      </div>
+
+      <!-- Segment 4 -->
+      <div class="segment-card" style="border-left-color: var(--z3);">
+        <div class="segment-header">
+          <div>
+            <h4 class="segment-name">Miles 13-18: Presidio and Golden Gate Park</h4>
+            <span class="segment-terrain">Sustained climbing</span>
+          </div>
+          <div class="segment-metrics">
+            <span class="data-mono zone-3">HR 140-150</span>
+            <span class="data-mono" style="color: var(--text-muted);">Accept slow pace</span>
+          </div>
+        </div>
+        <p class="segment-notes">You've completed 54% of climbing. Mile 15 descent (225 ft) — use practiced technique: forward lean, quick turnover, soft landing. Then GG Park climb miles 16-18: sustained 3-4% grade that feels endless. Half-marathon runners with fresh legs will pass you — ignore them. Gels at miles 14 and 17.</p>
+      </div>
+
+      <!-- Segment 5 -->
+      <div class="segment-card" style="border-left-color: var(--z3);">
+        <div class="segment-header">
+          <div>
+            <h4 class="segment-name">Miles 18-22: Haight-Ashbury and Mission</h4>
+            <span class="segment-terrain">Steep descent then flat</span>
+          </div>
+          <div class="segment-metrics">
+            <span class="data-mono zone-3">HR 140-148</span>
+            <span class="data-mono" style="color: var(--text-muted);">Gravity assist</span>
+          </div>
+        </div>
+        <p class="segment-notes">Haight-Ashbury descent at mile 20 is the course's most quad-damaging section. Your eccentric conditioning pays off here. High cadence, midfoot landing. After Market Street, relatively flat. Should feel tired but functional. Gel at mile 20.5.</p>
+      </div>
+
+      <!-- Segment 6: THE CRUX -->
+      <div class="segment-card" style="border-left-color: var(--z4);">
+        <div class="segment-header">
+          <div>
+            <h4 class="segment-name">Miles 23-24: Mariposa Street Hills</h4>
+            <span class="segment-terrain">THE CRUX</span>
+          </div>
+          <div class="segment-metrics">
+            <span class="data-mono zone-4">HR 145-155</span>
+            <span class="data-mono" style="color: var(--text-muted);">9:30-10:30/mi</span>
+          </div>
+        </div>
+        <p class="segment-notes">This is where the race is decided. Short but devastating hills on depleted legs. Take caffeinated gel at mile 22. Baby steps on uphills. Power-walk steepest 30-second sections if HR spikes above 165. "This is the last hard thing."</p>
+      </div>
+
+      <!-- Segment 7 -->
+      <div class="segment-card" style="border-left-color: var(--z4);">
+        <div class="segment-header">
+          <div>
+            <h4 class="segment-name">Miles 24-26.2: Flat Finish</h4>
+            <span class="segment-terrain">Flat, push it</span>
+          </div>
+          <div class="segment-metrics">
+            <span class="data-mono zone-4">HR 148-160+</span>
+            <span class="data-mono" style="color: var(--text-muted);">Go for it</span>
+          </div>
+        </div>
+        <p class="segment-notes">No more hills. Flat along the waterfront past Chase Center and Oracle Park. If you paced correctly, push now. Pick off runners who went too fast. Sprint final 0.2 if you have anything left. Finish under the Bay Bridge.</p>
+      </div>
+
+      <!-- Fueling Timeline -->
+      <h3 class="section-title" style="font-size: 22px; margin-top: 64px; margin-bottom: 24px;">Fueling Timeline</h3>
+
+      <table class="periodization-table">
+        <thead>
+          <tr>
+            <th>Timing</th>
+            <th>Mile</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="data-mono">-15 min</td>
+            <td>Pre-start</td>
+            <td>Caffeinated gel + 4 oz water</td>
+          </tr>
+          <tr>
+            <td class="data-mono">~27 min</td>
+            <td>~3</td>
+            <td>Gel + water from aid station</td>
+          </tr>
+          <tr>
+            <td class="data-mono">~62 min</td>
+            <td>~7</td>
+            <td>Gel + water (before GG Bridge)</td>
+          </tr>
+          <tr>
+            <td class="data-mono">~96 min</td>
+            <td>~10.5</td>
+            <td>Gel + electrolyte drink</td>
+          </tr>
+          <tr>
+            <td class="data-mono">~128 min</td>
+            <td>~14</td>
+            <td>Gel + water (before GG Park climb)</td>
+          </tr>
+          <tr>
+            <td class="data-mono">~155 min</td>
+            <td>~17</td>
+            <td>Gel + water</td>
+          </tr>
+          <tr>
+            <td class="data-mono">~188 min</td>
+            <td>~20.5</td>
+            <td>Gel + water (after Haight descent)</td>
+          </tr>
+          <tr style="background: rgba(255, 106, 0, 0.08);">
+            <td class="data-mono" style="color: var(--primary);">~200 min</td>
+            <td style="color: var(--primary); font-weight: 600;">~22</td>
+            <td style="color: var(--primary); font-weight: 600;">Caffeinated gel + water (before crux hills)</td>
+          </tr>
+          <tr>
+            <td class="data-mono">~220 min</td>
+            <td>~24.5</td>
+            <td>Final gel if needed</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="color: var(--text-muted); font-size: 13px; margin-top: 12px;">Total: 8-9 gels providing 200-270g carbohydrate. Supplement with sports drink from aid stations to reach 60-80g carbs per hour.</p>
+
+      <!-- Expected Split Times -->
+      <h3 class="section-title" style="font-size: 22px; margin-top: 64px; margin-bottom: 24px;">Expected Split Times</h3>
+
+      <table class="periodization-table">
+        <thead>
+          <tr>
+            <th>Segment</th>
+            <th>Miles</th>
+            <th>Expected Time</th>
+            <th>Cumulative</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="phase-name">Flat start</td>
+            <td>1-5</td>
+            <td class="data-mono">45:00-46:00</td>
+            <td class="data-mono">0:46</td>
+            <td>Conservative, banking nothing</td>
+          </tr>
+          <tr>
+            <td class="phase-name">GG Bridge climb</td>
+            <td>6-8</td>
+            <td class="data-mono">28:00-29:00</td>
+            <td class="data-mono">1:15</td>
+            <td>Slower on climbs, HR-controlled</td>
+          </tr>
+          <tr>
+            <td class="phase-name">Marin out-and-back</td>
+            <td>9-13</td>
+            <td class="data-mono">46:00-48:00</td>
+            <td class="data-mono">2:02</td>
+            <td>Includes mile 12 major climb</td>
+          </tr>
+          <tr>
+            <td class="phase-name">Presidio + GG Park</td>
+            <td>14-18</td>
+            <td class="data-mono">47:00-49:00</td>
+            <td class="data-mono">2:50</td>
+            <td>Sustained climbing, patience</td>
+          </tr>
+          <tr>
+            <td class="phase-name">Haight descent + flat</td>
+            <td>19-22</td>
+            <td class="data-mono">34:00-36:00</td>
+            <td class="data-mono">3:25</td>
+            <td>Gravity assist, protect quads</td>
+          </tr>
+          <tr>
+            <td class="phase-name">Crux hills</td>
+            <td>23-24</td>
+            <td class="data-mono">19:00-21:00</td>
+            <td class="data-mono">3:45</td>
+            <td>Walk steepest if needed</td>
+          </tr>
+          <tr>
+            <td class="phase-name">Flat finish</td>
+            <td>25-26.2</td>
+            <td class="data-mono">11:00-13:00</td>
+            <td class="data-mono">3:57-3:59</td>
+            <td>Push to finish line</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="color: var(--text-muted); font-size: 13px; margin-top: 12px;">First half ~2:02, second half ~1:57 — a mild negative split by effort even though terrain makes the second half clock-faster.</p>
+
+    </div>
   </section>
 
   <section id="hill-programming" class="section">

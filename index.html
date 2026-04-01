@@ -840,15 +840,6 @@
       border-color: rgba(255, 106, 0, 0.3);
     }
 
-    @media (max-width: 600px) {
-      .elevation-segments {
-        display: none;
-      }
-      .course-stats {
-        gap: 16px;
-      }
-    }
-
     /* ── Race Day Timeline ── */
     .timeline {
       position: relative;
@@ -941,24 +932,6 @@
       color: var(--text-secondary);
       font-size: 14px;
       line-height: 1.6;
-    }
-
-    @media (max-width: 600px) {
-      .timeline {
-        margin-left: 60px;
-        padding-left: 24px;
-      }
-      .timeline-time {
-        left: -80px;
-        font-size: 11px;
-        min-width: 60px;
-      }
-      .timeline-item::before {
-        left: -29px;
-      }
-      .segment-header {
-        flex-direction: column;
-      }
     }
 
     /* ── Hill Stage Cards ── */
@@ -1069,11 +1042,6 @@
       line-height: 1.5;
     }
 
-    @media (max-width: 768px) {
-      .exercise-grid {
-        grid-template-columns: 1fr;
-      }
-    }
     /* ── Gel Timeline ── */
     .gel-timeline {
       position: relative;
@@ -1147,9 +1115,162 @@
       margin: 24px 0;
     }
 
-    @media (max-width: 700px) {
+    /* ── Responsive Design ── */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .phase-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-title {
+        letter-spacing: -2px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .phase-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .exercise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .hero-stat-separator {
+        width: 40px;
+        height: 1px;
+      }
+
+      .hero-title {
+        letter-spacing: -1px;
+      }
+
+      .hero-countdown-number {
+        font-size: 48px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .day-table td {
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+
+      .day-table .day-details {
+        font-size: 12px;
+      }
+
+      .day-table .day-session {
+        min-width: auto;
+      }
+
+      .nav-progress {
+        display: none;
+      }
+
+      .week-card-header {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .elevation-profile {
+        overflow-x: auto;
+      }
+
+      .segment-header {
+        flex-direction: column;
+      }
+
+      .timeline {
+        margin-left: 40px;
+      }
+
+      .timeline-time {
+        left: -56px;
+        font-size: 11px;
+      }
+
+      .phase-heading {
+        font-size: clamp(32px, 8vw, 48px);
+      }
+
+      .gel-markers {
+        display: none;
+      }
+
+      .periodization-table {
+        font-size: 12px;
+      }
+
+      .periodization-table td,
+      .periodization-table th {
+        padding: 10px 8px;
+      }
+
       .carb-cards {
         grid-template-columns: 1fr;
+      }
+
+      .elevation-segments {
+        display: none;
+      }
+
+      .course-stats {
+        gap: 16px;
+      }
+    }
+
+    /* Very small screens */
+    @media (max-width: 480px) {
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero-stat-value {
+        font-size: 22px;
+      }
+
+      .day-table td {
+        padding: 8px 12px;
+        display: block;
+      }
+
+      .day-table .day-name {
+        width: auto;
+        padding-bottom: 0;
+      }
+
+      .day-table .day-session {
+        padding-top: 4px;
+        padding-bottom: 2px;
+      }
+
+      .day-table tr {
+        display: flex;
+        flex-direction: column;
+        padding: 8px 12px;
+      }
+
+      .day-table td {
+        padding: 2px 0;
+        border: none;
       }
     }
   </style>

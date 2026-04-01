@@ -923,6 +923,120 @@
         flex-direction: column;
       }
     }
+
+    /* ── Hill Stage Cards ── */
+    .stage-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 48px 0;
+    }
+
+    .stage-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .stage-card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stage-card-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--primary);
+    }
+
+    .stage-card-title {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text-primary);
+    }
+
+    .stage-card-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--primary);
+      background: rgba(255, 106, 0, 0.1);
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 106, 0, 0.2);
+    }
+
+    .stage-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .stage-card ul li {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .stage-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    /* ── Exercise Grid ── */
+    .exercise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .exercise-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .exercise-card h4 {
+      color: var(--text-primary);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .exercise-card .exercise-prescription {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .exercise-card p {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .exercise-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2521,7 +2635,117 @@
   </section>
 
   <section id="hill-programming" class="section">
-    <div class="container"></div>
+    <div class="container">
+
+      <div class="label" style="margin-bottom: 16px;">Hill Conditioning</div>
+      <h2 class="section-title">Hill Programming</h2>
+      <p style="color: var(--text-muted); margin-top: 8px;">From zero hill training to SF-ready in 17 weeks</p>
+
+      <div class="stage-cards">
+
+        <div class="stage-card">
+          <div class="stage-card-header">
+            <span class="stage-card-number">01</span>
+            <span class="stage-card-title">Familiarization</span>
+            <span class="stage-card-badge">Weeks 3-5</span>
+          </div>
+          <ul>
+            <li>Gentle 2-4% inclines within easy runs, 5-10 min total per session</li>
+            <li>Walk all downhills. No structured repeats.</li>
+            <li>Goal: introducing calves, Achilles tendons, and hip flexors to incline loading</li>
+            <li>Your PPL training gives muscular strength but not tendon stiffness for repetitive hill running</li>
+          </ul>
+        </div>
+
+        <div class="stage-card">
+          <div class="stage-card-header">
+            <span class="stage-card-number">02</span>
+            <span class="stage-card-title">Structured Introduction</span>
+            <span class="stage-card-badge">Weeks 6-8</span>
+          </div>
+          <ul>
+            <li>Short hill repeats: 5x30 seconds progressing to 4x3 minutes</li>
+            <li>Grades of 4-6% on treadmill or moderate outdoor hills</li>
+            <li>Walking descents transition to slow jogged descents</li>
+            <li>First gentle downhill exposure (-3 to -5%) for 5-10 minutes</li>
+            <li>Eccentric strength exercises (step-downs, slow Bulgarian split squats) start at bodyweight</li>
+          </ul>
+        </div>
+
+        <div class="stage-card">
+          <div class="stage-card-header">
+            <span class="stage-card-number">03</span>
+            <span class="stage-card-title">Race-Specific Building</span>
+            <span class="stage-card-badge">Weeks 9-13</span>
+          </div>
+          <ul>
+            <li>Long hill repeats at tempo effort simulating GG Bridge and Golden Gate Park climbs</li>
+            <li>Structured downhill repeats (3x1.5 min at -5 to -6%, moderate-fast pace)</li>
+            <li>Triggers the Repeated Bout Effect — eccentric exercise protects against future muscle damage for up to 6 months</li>
+            <li>Course-simulation workouts combine sustained climbs with tempo efforts</li>
+            <li>Eccentric strength exercises progress to weighted loads</li>
+          </ul>
+        </div>
+
+        <div class="stage-card">
+          <div class="stage-card-header">
+            <span class="stage-card-number">04</span>
+            <span class="stage-card-title">Maintenance &amp; Inoculation</span>
+            <span class="stage-card-badge">Weeks 14-16</span>
+          </div>
+          <ul>
+            <li>Hill volume within long runs but no new hill-specific sessions</li>
+            <li>One final downhill "refresher" in week 16 (2 weeks before race) to maintain RBE protection</li>
+            <li>Even 10 eccentric contractions provide significant protection</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <h3 style="color: var(--text-primary); font-size: 20px; font-weight: 700; margin-bottom: 8px;">Treadmill Course Simulation</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">How to replicate SF Marathon terrain indoors</p>
+
+      <table class="periodization-table">
+        <thead>
+          <tr>
+            <th>SF Course Segment</th>
+            <th>Treadmill Simulation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Miles 6-7: GG Bridge approach (7ft &rarr; 200ft)</td>
+            <td>12-15 min at 5.0 mph, 5% incline</td>
+          </tr>
+          <tr>
+            <td>Mile 12: Fort Baker to bridge (15ft &rarr; 200ft)</td>
+            <td>10 min at 5.0 mph, 5-6% incline</td>
+          </tr>
+          <tr>
+            <td>Miles 16-18: Golden Gate Park climb</td>
+            <td>20-25 min at 5.2 mph, 3-4% incline</td>
+          </tr>
+          <tr>
+            <td>Miles 23-24: Late-race hills</td>
+            <td>After 16+ mi of running: 2x5 min at 5.5 mph, 4-5%</td>
+          </tr>
+          <tr>
+            <td>Mile 15 descent (309&rarr;97ft)</td>
+            <td>10 min at 6.0-6.5 mph, -3% (if available) or 0%</td>
+          </tr>
+          <tr>
+            <td>Mile 20 Haight descent</td>
+            <td>8 min at 6.0-6.5 mph, -3% or 0%, soft landing form</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="goal-block" style="margin-top: 48px;">
+        <h3>The Repeated Bout Effect</h3>
+        <p>A single bout of eccentric exercise (like downhill running) protects against future muscle damage for up to 6 months. This is why the plan includes structured downhill repeats in weeks 9-13 and a final "refresher" in week 16. By race day, your quads will be pre-conditioned for the Haight-Ashbury descent and the Mariposa hills — the sections that destroy unprepared runners.</p>
+      </div>
+
+    </div>
   </section>
 
   <section id="strength" class="section">

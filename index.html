@@ -375,6 +375,138 @@
       0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.5; }
       50% { transform: rotate(45deg) translate(5px, 5px); opacity: 1; }
     }
+
+    /* ── Phase Cards ── */
+    .phase-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 48px 0;
+    }
+
+    .phase-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      border-top: 3px solid var(--primary);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .phase-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 106, 0, 0.4);
+    }
+
+    .phase-card-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .phase-card-name {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .phase-card-weeks {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .phase-card-mileage {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .phase-card-detail {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── Periodization Table ── */
+    .periodization-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 48px 0;
+      font-size: 14px;
+    }
+
+    .periodization-table th {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .periodization-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .periodization-table tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .periodization-table .phase-name {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* ── Goal Block ── */
+    .goal-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 12px 12px 0;
+      padding: 32px;
+      margin: 48px 0;
+    }
+
+    .goal-block h3 {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .goal-block .goal-primary {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .goal-block .goal-stretch {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .goal-block p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
   </style>
 </head>
 <body>
@@ -423,7 +555,98 @@
   </section>
 
   <section id="overview" class="section">
-    <div class="container"></div>
+    <div class="container">
+      <div class="label" style="margin-bottom: 16px;">Training Architecture</div>
+      <h2 class="section-title">Periodization Overview</h2>
+      <p style="color: var(--text-muted); margin-top: 8px; max-width: 600px;">Four phases designed to bridge the gap between your strong aerobic engine and undertrained running chassis.</p>
+
+      <div class="phase-cards">
+        <div class="phase-card">
+          <div class="phase-card-number">01</div>
+          <h3 class="phase-card-name">BASE</h3>
+          <div class="phase-card-weeks">Weeks 1-5</div>
+          <div class="phase-card-mileage data-mono">15→22 mi</div>
+          <div class="phase-card-detail">Aerobic foundation, tissue adaptation, Z2 discipline</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card-number">02</div>
+          <h3 class="phase-card-name">BUILD</h3>
+          <div class="phase-card-weeks">Weeks 6-10</div>
+          <div class="phase-card-mileage data-mono">24→33 mi</div>
+          <div class="phase-card-detail">Threshold work, hill introduction, marathon pace</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card-number">03</div>
+          <h3 class="phase-card-name">PEAK</h3>
+          <div class="phase-card-weeks">Weeks 11-14</div>
+          <div class="phase-card-mileage data-mono">36→40 mi</div>
+          <div class="phase-card-detail">Race-specific simulation, highest volume, course prep</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-card-number">04</div>
+          <h3 class="phase-card-name">TAPER</h3>
+          <div class="phase-card-weeks">Weeks 15-17</div>
+          <div class="phase-card-mileage data-mono">30→14+race</div>
+          <div class="phase-card-detail">Volume reduction, sharpening, race execution</div>
+        </div>
+      </div>
+
+      <table class="periodization-table">
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Weeks</th>
+            <th>Focus</th>
+            <th>Weekly Mileage</th>
+            <th>Runs/Week</th>
+            <th>Strength</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="phase-name">Base</td>
+            <td>1-5</td>
+            <td>Aerobic foundation, tissue adaptation, Z2 discipline</td>
+            <td class="data-mono">15→22 mi</td>
+            <td>4→5</td>
+            <td>3x/week</td>
+          </tr>
+          <tr>
+            <td class="phase-name">Build</td>
+            <td>6-10</td>
+            <td>Threshold work, hill introduction, marathon pace</td>
+            <td class="data-mono">24→33 mi</td>
+            <td>5</td>
+            <td>2-3x/week</td>
+          </tr>
+          <tr>
+            <td class="phase-name">Peak</td>
+            <td>11-14</td>
+            <td>Race-specific simulation, highest volume, course prep</td>
+            <td class="data-mono">36→40 mi</td>
+            <td>5-6</td>
+            <td>2x/week</td>
+          </tr>
+          <tr>
+            <td class="phase-name">Taper</td>
+            <td>15-17</td>
+            <td>Volume reduction, sharpening, race execution prep</td>
+            <td class="data-mono">30→14+race</td>
+            <td>4-5</td>
+            <td>1x→0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="goal-block">
+        <h3>Goal Calibration</h3>
+        <div class="goal-primary">4:00 finish</div>
+        <div class="goal-stretch">Stretch: 3:45 (if tune-up half in weeks 11-12 shows 1:48-1:52)</div>
+        <p>Your VO2max of 51.6 predicts a 3:25-3:30 marathon for a fully trained runner, but your current volume of ~13 mi/week places actual race fitness closer to 4:30-5:00. The gap between aerobic capacity and structural readiness is the central challenge of this plan.</p>
+        <p>The SF course profile adds 5-7 minutes over a flat equivalent due to sustained climbing through Golden Gate Park and the out-and-back across the bridge.</p>
+        <p style="color: var(--primary); font-weight: 600; margin-bottom: 0;">Key insight: Your aerobic engine is strong but your running chassis is undertrained.</p>
+      </div>
+    </div>
   </section>
 
   <section id="phase-1" class="section">

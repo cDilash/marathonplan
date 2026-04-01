@@ -208,9 +208,14 @@
       background: var(--primary);
       border-radius: 2px;
       transform-origin: left;
-      transform: scaleX(0);
-      animation: progress-fill linear;
-      animation-timeline: scroll();
+    }
+
+    @supports (animation-timeline: scroll()) {
+      .nav-progress-bar {
+        transform: scaleX(0);
+        animation: progress-fill linear;
+        animation-timeline: scroll();
+      }
     }
 
     @keyframes progress-fill {
@@ -1315,9 +1320,9 @@
         <span class="hero-countdown-number">118</span>
         <span class="hero-countdown-label">days to race</span>
       </div>
-      <div class="hero-scroll-indicator">
-        <div class="hero-scroll-arrow"></div>
-      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="hero-scroll-arrow"></div>
     </div>
   </section>
 
@@ -2285,6 +2290,11 @@
         </table>
       </div>
 
+      <div class="phase-assessment animate-on-scroll">
+        <h3>End of Peak Phase</h3>
+        <p>You've completed the hardest training block. Your 20-mile long run with marathon-pace blocks is the ultimate race-readiness test. If you held 8:45-9:15/mi for the MP segments on tired legs, you are on track for a 4:00 finish. If your MP segments felt controlled at 8:25-8:45/mi, the 3:45 stretch goal is realistic. Trust the taper to absorb the fatigue — you will feel significantly better on race day than you do right now.</p>
+      </div>
+
     </div>
   </section>
 
@@ -2467,11 +2477,11 @@
               Final carb loading day. Reduce volume slightly. Easy dinner by 6 PM. Prepare drop bag. Sleep by 9 PM. Pre-bed snack: small bowl cereal or toast with honey at 8 PM.
             </td>
           </tr>
-          <tr style="background: rgba(255, 106, 0, 0.05); border-left: 3px solid var(--primary);">
+          <tr class="day-row-long" style="background: rgba(255, 106, 0, 0.05); border-left: 3px solid var(--primary);">
             <td class="day-name">Sun</td>
             <td class="day-session"><strong style="color: var(--primary);">RACE DAY — San Francisco Marathon</strong></td>
             <td class="day-details">
-              Wake 3:00-3:30 AM. Pre-race meal at 2:00-2:30 AM (3 hours before start): 2 bagels with jam + banana + 16 oz sports drink (~150-200g carbs). Tested foods only. Sip water until 4:45 AM. Gel 15 min before start. Arrive Embarcadero corral by 4:45 AM. Disposable warm layers for the start.
+              Wake 3:00 AM. Pre-race meal immediately (3:00-3:15 AM): 2 bagels with jam + banana + 16 oz sports drink (~150-200g carbs). Tested foods only. Sip water until 4:45 AM. Gel 15 min before start. Arrive Embarcadero corral by 4:45 AM. Disposable warm layers for the start.
             </td>
           </tr>
         </table>
@@ -3155,7 +3165,7 @@
 
       <div class="goal-block animate-on-scroll" style="margin-top: 48px;">
         <h3>Pre-Race Meal</h3>
-        <p>Pre-race meal 3 hours before start: 2 bagels with jam + banana + 16 oz sports drink (~150-200g carbs). Tested foods only. This is not the time to experiment.</p>
+        <p>Pre-race meal immediately after waking at 3:00 AM (~2 hours before start): 2 bagels with jam + banana + 16 oz sports drink (~150-200g carbs). Tested foods only. This is not the time to experiment.</p>
       </div>
 
       <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-top: 48px; margin-bottom: 24px;">Training Fueling Progression</h3>

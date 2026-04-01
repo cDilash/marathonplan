@@ -507,6 +507,137 @@
       margin-bottom: 12px;
       font-size: 15px;
     }
+
+    /* ── Week Card Component ── */
+    .week-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+
+    .week-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .week-card-title {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--text-primary);
+    }
+
+    .week-card-mileage {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--primary);
+      background: rgba(255, 106, 0, 0.1);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 106, 0, 0.2);
+    }
+
+    .week-card-focus {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .day-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .day-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .day-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .day-table td {
+      padding: 12px 24px;
+      font-size: 14px;
+      vertical-align: top;
+    }
+
+    .day-table .day-name {
+      width: 48px;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .day-table .day-session {
+      font-weight: 600;
+      color: var(--text-primary);
+      min-width: 160px;
+    }
+
+    .day-table .day-details {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .day-table .treadmill {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 4px;
+      font-style: italic;
+      display: block;
+    }
+
+    .day-row-rest { opacity: 0.5; }
+    .day-row-easy td.day-session { color: var(--text-secondary); font-weight: 400; }
+    .day-row-quality td.day-session { color: var(--primary); }
+    .day-row-quality { border-left: 3px solid var(--primary); }
+    .day-row-long td.day-session { color: var(--primary); }
+    .day-row-long { border-left: 3px solid var(--primary); background: rgba(255, 106, 0, 0.03); }
+    .day-row-strength td.day-session { color: var(--text-muted); }
+
+    .phase-intro {
+      margin-bottom: 48px;
+    }
+
+    .phase-intro p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    .phase-assessment {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 32px;
+      margin-top: 48px;
+    }
+
+    .phase-assessment h3 {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .phase-assessment p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>

@@ -224,6 +224,157 @@
       color: var(--primary);
       letter-spacing: 1px;
     }
+
+    /* ── Hero Section ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 48px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(255, 106, 0, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(255, 59, 48, 0.05) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0a 0%, #111118 50%, #0a0a0a 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 8vw, 80px);
+      letter-spacing: -3px;
+      line-height: 0.95;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--danger));
+      margin: 32px auto;
+      border-radius: 2px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+    }
+
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .hero-stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      font-size: 28px;
+      color: var(--primary);
+    }
+
+    .hero-stat-label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    .hero-stat-separator {
+      width: 1px;
+      height: 40px;
+      background: var(--border);
+    }
+
+    .hero-countdown {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-countdown-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      font-size: 64px;
+      color: var(--text-primary);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .hero-countdown-label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero-scroll-arrow {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid var(--text-dim);
+      border-bottom: 2px solid var(--text-dim);
+      transform: rotate(45deg);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.5; }
+      50% { transform: rotate(45deg) translate(5px, 5px); opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -238,8 +389,37 @@
   </div>
 </nav>
 
-  <section id="hero">
-    <div class="container"></div>
+  <section id="hero" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-label">July 27, 2026</div>
+      <h1 class="hero-title">SAN FRANCISCO<br/>MARATHON</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">17-Week Training Plan</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value">51.6</span>
+          <span class="hero-stat-label">VO2max</span>
+        </div>
+        <div class="hero-stat-separator"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">13</span>
+          <span class="hero-stat-label">mi/wk current</span>
+        </div>
+        <div class="hero-stat-separator"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">4:00</span>
+          <span class="hero-stat-label">target finish</span>
+        </div>
+      </div>
+      <div class="hero-countdown">
+        <span class="hero-countdown-number">118</span>
+        <span class="hero-countdown-label">days to race</span>
+      </div>
+      <div class="hero-scroll-indicator">
+        <div class="hero-scroll-arrow"></div>
+      </div>
+    </div>
   </section>
 
   <section id="overview" class="section">

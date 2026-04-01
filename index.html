@@ -638,6 +638,179 @@
       line-height: 1.7;
       font-size: 14px;
     }
+
+    /* ── Elevation Profile ── */
+    .elevation-container {
+      margin: 48px 0;
+      position: relative;
+    }
+
+    .elevation-profile {
+      position: relative;
+      height: 180px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .elevation-fill {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255, 106, 0, 0.35) 0%, rgba(255, 106, 0, 0.03) 100%);
+      clip-path: polygon(
+        0% 96.9%,
+        1.9% 96.9%,
+        3.8% 96.9%,
+        7.6% 96.9%,
+        11.5% 93.8%,
+        13.0% 95.3%,
+        15.3% 84.4%,
+        19.1% 90.6%,
+        22.9% 75.0%,
+        26.7% 37.5%,
+        30.5% 37.5%,
+        34.4% 68.8%,
+        38.2% 95.3%,
+        42.0% 84.4%,
+        45.8% 37.5%,
+        49.6% 53.1%,
+        53.4% 43.8%,
+        57.3% 3.4%,
+        61.1% 21.9%,
+        64.9% 12.5%,
+        68.7% 21.9%,
+        72.5% 37.5%,
+        76.3% 69.7%,
+        80.2% 84.4%,
+        84.0% 90.6%,
+        87.8% 68.8%,
+        91.6% 81.3%,
+        95.4% 93.8%,
+        100% 96.9%,
+        100% 100%,
+        0% 100%
+      );
+    }
+
+    .elevation-fill::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255, 106, 0, 0.12) 0%, rgba(255, 106, 0, 0.4) 100%);
+      clip-path: inherit;
+    }
+
+    .elevation-gridlines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+
+    .elevation-gridline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--border);
+      opacity: 0.5;
+    }
+
+    .elevation-gridline-label {
+      position: absolute;
+      right: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: var(--text-dim);
+      transform: translateY(-50%);
+    }
+
+    .elevation-mile-markers {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .elevation-annotation {
+      position: absolute;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--primary);
+      font-weight: 500;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .elevation-annotation::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      width: 1px;
+      height: 4px;
+      background: var(--primary);
+      opacity: 0.5;
+    }
+
+    .elevation-segments {
+      position: relative;
+      height: 36px;
+      margin-top: 4px;
+    }
+
+    .segment-label {
+      position: absolute;
+      transform: translateX(-50%);
+    }
+
+    .segment-label .segment-name {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .segment-label .segment-miles {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+    }
+
+    .course-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .course-stats > div {
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .elevation-segments {
+        display: none;
+      }
+      .course-stats {
+        gap: 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1850,7 +2023,83 @@
   </section>
 
   <section id="course-map" class="section">
-    <div class="container"></div>
+    <div class="container">
+      <div class="label" style="margin-bottom: 16px; color: var(--success);">The Course</div>
+      <h2 class="section-title">San Francisco Marathon</h2>
+      <p style="color: var(--text-muted); margin-top: 8px;">26.2 miles · 1,303 ft elevation gain · July 27, 2026</p>
+
+      <div class="elevation-container">
+        <div class="elevation-profile">
+          <!-- Gridlines -->
+          <div class="elevation-gridlines">
+            <div class="elevation-gridline" style="bottom: 93.8%;"><span class="elevation-gridline-label" style="bottom: 0;">300 ft</span></div>
+            <div class="elevation-gridline" style="bottom: 62.5%;"><span class="elevation-gridline-label" style="bottom: 0;">200 ft</span></div>
+            <div class="elevation-gridline" style="bottom: 31.3%;"><span class="elevation-gridline-label" style="bottom: 0;">100 ft</span></div>
+          </div>
+
+          <!-- Elevation annotations -->
+          <span class="elevation-annotation" style="left: 26.7%; top: 28%;">200 ft</span>
+          <span class="elevation-annotation" style="left: 57.3%; top: 0%; padding-top: 4px;">309 ft ▲</span>
+          <span class="elevation-annotation" style="left: 76.3%; top: 60%;">97 ft</span>
+
+          <!-- Filled elevation shape -->
+          <div class="elevation-fill"></div>
+        </div>
+
+        <div class="elevation-mile-markers">
+          <span>0</span><span>2</span><span>4</span><span>6</span><span>8</span>
+          <span>10</span><span>12</span><span>14</span><span>16</span><span>18</span>
+          <span>20</span><span>22</span><span>24</span><span>26.2</span>
+        </div>
+
+        <div class="elevation-segments">
+          <div class="segment-label" style="left: 6%;">
+            <span class="segment-name">Embarcadero</span>
+            <span class="segment-miles">Mi 1–3</span>
+          </div>
+          <div class="segment-label" style="left: 28%;">
+            <span class="segment-name">GG Bridge</span>
+            <span class="segment-miles">Mi 7–8</span>
+          </div>
+          <div class="segment-label" style="left: 38%;">
+            <span class="segment-name">Fort Baker</span>
+            <span class="segment-miles">Mi 10</span>
+          </div>
+          <div class="segment-label" style="left: 58%;">
+            <span class="segment-name">GG Park</span>
+            <span class="segment-miles">Mi 15–18</span>
+          </div>
+          <div class="segment-label" style="left: 76%;">
+            <span class="segment-name">Haight</span>
+            <span class="segment-miles">Mi 20</span>
+          </div>
+          <div class="segment-label" style="left: 90%;">
+            <span class="segment-name">Mariposa</span>
+            <span class="segment-miles">Mi 23–24</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-stats">
+        <div>
+          <div class="data-mono" style="font-size: 24px;">1,303</div>
+          <div class="label">ft elevation gain</div>
+        </div>
+        <div>
+          <div class="data-mono" style="font-size: 24px;">309</div>
+          <div class="label">ft highest point</div>
+        </div>
+        <div>
+          <div class="data-mono" style="font-size: 24px;">54%</div>
+          <div class="label">climbing in first half</div>
+        </div>
+      </div>
+
+      <div class="goal-block" style="margin-top: 48px; border-left-color: var(--success);">
+        <h3>Front-Loaded Course</h3>
+        <p>54% of the climbing happens in the first half. The Golden Gate Bridge approach (mile 6–7), the return climb at mile 12, and Golden Gate Park (miles 16–18) demand patience. The late-race hills at Mariposa Street (miles 23–24) are short but devastating on depleted legs. The final 2.2 miles are flat along the Bay — your reward for disciplined pacing.</p>
+      </div>
+    </div>
   </section>
 
   <section id="race-day" class="section">

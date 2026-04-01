@@ -1037,6 +1037,84 @@
         grid-template-columns: 1fr;
       }
     }
+    /* ── Gel Timeline ── */
+    .gel-timeline {
+      position: relative;
+      margin: 32px 0 64px;
+      padding: 0 8px;
+    }
+
+    .gel-track {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .gel-track-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--danger));
+      border-radius: 2px;
+      width: 100%;
+    }
+
+    .gel-markers {
+      position: relative;
+      height: 60px;
+    }
+
+    .gel-marker {
+      position: absolute;
+      top: -22px;
+      width: 12px;
+      height: 12px;
+      background: var(--primary);
+      border: 2px solid var(--base);
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+
+    .gel-marker::after {
+      content: attr(data-mile);
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .gel-marker::before {
+      content: attr(data-label);
+      position: absolute;
+      top: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .gel-marker-caffeine {
+      background: var(--danger);
+      box-shadow: 0 0 8px rgba(255, 59, 48, 0.4);
+    }
+
+    /* ── Carb Loading Cards ── */
+    .carb-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    @media (max-width: 700px) {
+      .carb-cards {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2858,7 +2936,104 @@
   </section>
 
   <section id="nutrition" class="section">
-    <div class="container"></div>
+    <div class="container">
+
+      <div class="label" style="margin-bottom: 16px;">Fueling</div>
+      <h2 class="section-title">Nutrition & Fueling</h2>
+      <p style="color: var(--text-muted); margin-top: 8px;">Race-day energy strategy and carb loading protocol</p>
+
+      <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-top: 48px; margin-bottom: 24px;">Race-Day Gel Schedule</h3>
+      <div class="gel-timeline">
+        <div class="gel-track">
+          <div class="gel-track-fill"></div>
+        </div>
+        <div class="gel-markers">
+          <div class="gel-marker gel-marker-caffeine" style="left: 0%;" data-mile="Pre" data-label="Caffeine gel"></div>
+          <div class="gel-marker" style="left: 11.5%;" data-mile="3" data-label="Gel + water"></div>
+          <div class="gel-marker" style="left: 26.7%;" data-mile="7" data-label="Gel + water"></div>
+          <div class="gel-marker" style="left: 40.1%;" data-mile="10.5" data-label="Gel + electrolyte"></div>
+          <div class="gel-marker" style="left: 53.4%;" data-mile="14" data-label="Gel + water"></div>
+          <div class="gel-marker" style="left: 64.9%;" data-mile="17" data-label="Gel + water"></div>
+          <div class="gel-marker" style="left: 78.2%;" data-mile="20.5" data-label="Gel + water"></div>
+          <div class="gel-marker gel-marker-caffeine" style="left: 84%;" data-mile="22" data-label="CAFFEINE gel"></div>
+          <div class="gel-marker" style="left: 93.5%;" data-mile="24.5" data-label="Final gel"></div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 32px; justify-content: center; margin: 32px 0; flex-wrap: wrap;">
+        <div style="text-align: center;">
+          <div class="data-mono" style="font-size: 24px;">8-9</div>
+          <div class="label">gels total</div>
+        </div>
+        <div style="text-align: center;">
+          <div class="data-mono" style="font-size: 24px;">60-80g</div>
+          <div class="label">carbs per hour</div>
+        </div>
+        <div style="text-align: center;">
+          <div class="data-mono" style="font-size: 24px;">200-270g</div>
+          <div class="label">total carbohydrate</div>
+        </div>
+      </div>
+
+      <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-top: 48px; margin-bottom: 24px;">Carb Loading Protocol (3 Days Before Race)</h3>
+      <div class="carb-cards">
+        <div class="card" style="border-top: 3px solid var(--primary);">
+          <div class="data-mono" style="font-size: 13px; margin-bottom: 8px;">Thursday — 3 days out</div>
+          <h4 style="color: var(--text-primary); font-size: 15px; font-weight: 700; margin-bottom: 12px;">Target 10-12 g/kg = 788-946g carbs</h4>
+          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7;">White rice, pasta, bread, juice, sports drinks. Low fiber. Big lunch, moderate dinner.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--primary);">
+          <div class="data-mono" style="font-size: 13px; margin-bottom: 8px;">Friday — 2 days out</div>
+          <h4 style="color: var(--text-primary); font-size: 15px; font-weight: 700; margin-bottom: 12px;">Same carb targets</h4>
+          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Make lunch the biggest meal. Lay out race gear. Charge GPS watch. Set 3 alarms.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--primary);">
+          <div class="data-mono" style="font-size: 13px; margin-bottom: 8px;">Saturday — 1 day out</div>
+          <h4 style="color: var(--text-primary); font-size: 15px; font-weight: 700; margin-bottom: 12px;">Reduce volume slightly</h4>
+          <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Easy dinner by 6 PM. Prepare drop bag. Sleep by 9 PM. Pre-bed snack: cereal or toast with honey at 8 PM.</p>
+        </div>
+      </div>
+
+      <div class="goal-block" style="margin-top: 48px;">
+        <h3>Pre-Race Meal</h3>
+        <p>Pre-race meal 3 hours before start: 2 bagels with jam + banana + 16 oz sports drink (~150-200g carbs). Tested foods only. This is not the time to experiment.</p>
+      </div>
+
+      <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-top: 48px; margin-bottom: 24px;">Training Fueling Progression</h3>
+      <div class="card">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th style="text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); border-bottom: 1px solid var(--border);">Week</th>
+              <th style="text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); border-bottom: 1px solid var(--border);">Protocol</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 10px 12px; border-bottom: 1px solid var(--border);"><span class="data-mono" style="font-size: 14px;">Week 5</span></td>
+              <td style="padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 14px;">First gel practice on 10-mi long run (1 gel at mile 7)</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 12px; border-bottom: 1px solid var(--border);"><span class="data-mono" style="font-size: 14px;">Week 6</span></td>
+              <td style="padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 14px;">Two gels on 11-mi long run (miles 5 and 8.5)</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 12px; border-bottom: 1px solid var(--border);"><span class="data-mono" style="font-size: 14px;">Week 7</span></td>
+              <td style="padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 14px;">Two gels on 13-mi long run (miles 5 and 9)</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 12px; border-bottom: 1px solid var(--border);"><span class="data-mono" style="font-size: 14px;">Week 9+</span></td>
+              <td style="padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 14px;">Full race protocol on long runs (gel every 35-40 min)</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 12px;"><span class="data-mono" style="font-size: 14px;">Week 11+</span></td>
+              <td style="padding: 10px 12px; color: var(--text-secondary); font-size: 14px;">Full dress rehearsal with exact race-day products</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
   </section>
 
   <section id="risk-management" class="section">
